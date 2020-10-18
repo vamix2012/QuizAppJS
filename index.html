@@ -4,24 +4,27 @@
     <title>
         Quiz App JS
     </title>
+    <meta charset="utf-8">
+    <script src="game.js"></script>
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
 </head>
 
-<body>
+<body onload="nextQuestion()">
     <h1>The awesome HTML Quiz!!</h1>
     
     <div class="card">
-        <div class="card-body">
+        <div  class="card-body" id="question">
           In diesm abschnitt wird eine frage gestellt!!
         </div>
       </div>
 <div class="mt-4">
-    <button class="btn btn-primary">Antwort A</button>
-    <button class="btn btn-primary">Antwort B</button>
-    <button class="btn btn-primary">Antwort C</button>
-    <button class="btn btn-primary">Antwort D</button>
+    <button onclick="answer(1)" id="answer1" class="btn btn-primary">Antwort A</button>
+    <button onclick="answer(2)" id="answer2" class="btn btn-primary">Antwort B</button>
+    <button onclick="answer(3)" id="answer3" class="btn btn-primary">Antwort C</button>
+    <button onclick="answer(4)" id="answer4" class="btn btn-primary">Antwort D</button>
 </div>
+
 
 
 </body>
