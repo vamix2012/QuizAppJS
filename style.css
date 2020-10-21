@@ -2,4 +2,23 @@ body{
     padding: 16px;
     padding-left: 64px;
     padding-right: 64px;
+    padding-top: 96px;
+}
+.page-footer{
+    position: absolute;
+    color: white;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.custom-header{
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    height: 80px;
+}
+.card-body{
+    border-radius: 16px;
 }

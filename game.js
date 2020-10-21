@@ -1,10 +1,10 @@
-let answer_1 = 'nobody';
-let answer_2 = 'apeared from nowhere';
-let answer_3 = 'some genius';
+let answer_1 = 'Someone';
+let answer_2 = 'Apeared from nowhere';
+let answer_3 = 'Some genius';
 let answer_4 = 'Tim Berners-Lee';
 
 function nextQuestion() {
-    document.getElementById('question').innerHTML = 'Wer war zuerst? das Ei oder das Hähnchen';
+    document.getElementById('question').innerHTML = 'Wer hat HTML erfunden?';
 
     document.getElementById('answer1').innerHTML = answer_1;
     document.getElementById('answer2').innerHTML = answer_2;
@@ -14,7 +14,7 @@ function nextQuestion() {
 
 function answer(a) {
     let selected_answer;
-    
+
     if (a == 1) {
         selected_answer = answer_1;
     } else if (a == 2) {
@@ -26,8 +26,11 @@ function answer(a) {
     }
 
     if (selected_answer != answer_4) {
-        alert('FALSCH!!!!')
+        document.getElementById('wrong-answer').classList.remove('d-none');
+        document.getElementById('right-answer').classList.add('d-none');
     } else {
-        alert('RICHTIG!!!!')
+       
+        document.getElementById('right-answer').classList.remove('d-none');
+        document.getElementById('wrong-answer').classList.add('d-none');
     }
 }
