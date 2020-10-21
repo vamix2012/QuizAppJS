@@ -1,36 +1,69 @@
-let answer_1 = 'Someone';
-let answer_2 = 'Apeared from nowhere';
-let answer_3 = 'Some genius';
-let answer_4 = 'Tim Berners-Lee';
+let question_1 = 'Wer hat HTML erfunden?';
 
+let question_1_answer_1 = 'Someone';
+let question_1_answer_2 = 'Apeared from nowhere';
+let question_1_answer_3 = 'Some genius';
+let question_1_answer_4 = 'Tim Berners-Lee';
+
+let question_2 = 'Was bedeutet das HTML Tag &lt;a&gt;?'
+let question_2_answer_1 = 'Some Tag';
+let question_2_answer_2 = 'Italic';
+let question_2_answer_3 = 'Something';
+let question_2_answer_4 = 'Ein Link';
+
+let right_answer;
+let question_number = 0;
+let progress = 0;
+
+function hideElements() {
+    document.getElementById('right-answer').classList.add('d-none');
+    document.getElementById('next-btn').classList.add('d-none');
+}
 function nextQuestion() {
-    document.getElementById('question').innerHTML = 'Wer hat HTML erfunden?';
+    hideElements();
+    question_number = question_number + 1;
+    progress = question_number * 10;
+    document.getElementById('progress-bar').innerHTML = progress + '%';
+    document.getElementById('progress-bar').style.width = progress + '%';
+    if (question_number == 1) {
+        loadQuestion1();
 
-    document.getElementById('answer1').innerHTML = answer_1;
-    document.getElementById('answer2').innerHTML = answer_2;
-    document.getElementById('answer3').innerHTML = answer_3;
-    document.getElementById('answer4').innerHTML = answer_4;
+    }
+    if (question_number == 2) {
+        loadQuestion2();
+
+    }
+
+    function loadQuestion1() {
+        document.getElementById('question').innerHTML = question_1;
+        document.getElementById('answer1').innerHTML = question_1_answer_1;
+        document.getElementById('answer2').innerHTML = question_1_answer_2;
+        document.getElementById('answer3').innerHTML = question_1_answer_3;
+        document.getElementById('answer4').innerHTML = question_1_answer_4;
+        right_answer = 4;
+    }
+    
+    function loadQuestion2() {
+        document.getElementById('question').innerHTML = question_2;
+        document.getElementById('answer1').innerHTML = question_2_answer_1;
+        document.getElementById('answer2').innerHTML = question_2_answer_2;
+        document.getElementById('answer3').innerHTML = question_2_answer_3;
+        document.getElementById('answer4').innerHTML = question_2_answer_4;
+        right_answer = 4;
+
+    }
 }
 
 function answer(a) {
-    let selected_answer;
 
-    if (a == 1) {
-        selected_answer = answer_1;
-    } else if (a == 2) {
-        selected_answer = answer_2;
-    } else if (a == 3) {
-        selected_answer = answer_3;
-    } else {
-        selected_answer = answer_4;
-    }
 
-    if (selected_answer != answer_4) {
+    if (a != right_answer) {
         document.getElementById('wrong-answer').classList.remove('d-none');
         document.getElementById('right-answer').classList.add('d-none');
     } else {
-       
+
         document.getElementById('right-answer').classList.remove('d-none');
         document.getElementById('wrong-answer').classList.add('d-none');
+        document.getElementById('next-btn').classList.remove('d-none')
     }
 }
