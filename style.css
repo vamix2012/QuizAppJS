@@ -22,3 +22,13 @@ body{
 .card-body{
     border-radius: 16px;
 }
+.quiz-btn-row {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.quiz-btn-row button{
+width: 40%;
+height: 80px;
+}
