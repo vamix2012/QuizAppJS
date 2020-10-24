@@ -21,7 +21,50 @@ let allQuestions = [{
     'answer_3': 'Some genius',
     'answer_4': 'Tim Berners-Lee',
     'right_answer': 3
-}];
+},
+{
+    'question': 'Was bedeutet das HTML Tag &lt;a&gt;?',
+    'answer_1': 'Some Tag',
+    'answer_2': 'Italic',
+    'answer_3': 'Some genius',
+    'answer_4': 'Ein Link',
+    'right_answer': 4
+},
+{
+    'question': 'Was bedeutet das HTML Tag &lt;a&gt;?',
+    'answer_1': 'Some Tag',
+    'answer_2': 'Italic',
+    'answer_3': 'Some genius',
+    'answer_4': 'Ein Link',
+    'right_answer': 4
+},
+{
+    'question': 'Was bedeutet das HTML Tag &lt;a&gt;?',
+    'answer_1': 'Some Tag',
+    'answer_2': 'Italic',
+    'answer_3': 'Some genius',
+    'answer_4': 'Ein Link',
+    'right_answer': 4
+},
+{
+    'question': 'Was bedeutet das HTML Tag &lt;a&gt;?',
+    'answer_1': 'Some Tag',
+    'answer_2': 'Italic',
+    'answer_3': 'Some genius',
+    'answer_4': 'Ein Link',
+    'right_answer': 4
+},
+{
+    'question': 'Was bedeutet das HTML Tag &lt;a&gt;?',
+    'answer_1': 'Some Tag',
+    'answer_2': 'Italic',
+    'answer_3': 'Some genius',
+    'answer_4': 'Ein Link',
+    'right_answer': 4
+}
+];
+
+
 
 let right_answer;
 let question_number = 0;
@@ -33,19 +76,26 @@ function hideElements() {
 }
 function nextQuestion() {
     hideElements();
-    question_number = question_number + 1;
-    progress = question_number * 10;
-    document.getElementById('progress-bar').innerHTML = progress + '%';
-    document.getElementById('progress-bar').style.width = progress + '%';
-    loadQuestion();
+
+    if (question_number == allQuestions.length) {
+        document.getElementById('quiz-container').classList.add('d-none');
+        document.getElementById('quiz-finished-container').classList.remove('d-none');
+    } else {
+        question_number = question_number + 1;
+        progress = Math.round((question_number / allQuestions.length) * 100);
+        document.getElementById('progress-bar').innerHTML = progress + '%';
+        document.getElementById('progress-bar').style.width = progress + '%';
+        loadQuestion();
+    }
+
 
     function loadQuestion() {
-        document.getElementById('question').innerHTML = allQuestions[question_number -1]['question'];
-        document.getElementById('answer1').innerHTML = allQuestions[question_number -1]['answer_1'];
-        document.getElementById('answer2').innerHTML = allQuestions[question_number -1]['answer_2'];
-        document.getElementById('answer3').innerHTML = allQuestions[question_number -1]['answer_3'];
-        document.getElementById('answer4').innerHTML = allQuestions[question_number -1]['answer_4'];
-        right_answer = allQuestions[question_number -1]['right_answer'];
+        document.getElementById('question').innerHTML = allQuestions[question_number - 1]['question'];
+        document.getElementById('answer1').innerHTML = allQuestions[question_number - 1]['answer_1'];
+        document.getElementById('answer2').innerHTML = allQuestions[question_number - 1]['answer_2'];
+        document.getElementById('answer3').innerHTML = allQuestions[question_number - 1]['answer_3'];
+        document.getElementById('answer4').innerHTML = allQuestions[question_number - 1]['answer_4'];
+        right_answer = allQuestions[question_number - 1]['right_answer'];
     }
 }
 
